@@ -1,0 +1,201 @@
+
+\begin{DoxyItemize}
+\item \href{https://en.wikipedia.org/wiki/Python_(programming_language)}{\tt Python}
+\begin{DoxyItemize}
+\item \href{https://en.wikipedia.org/wiki/CPython}{\tt C\+Python}
+\item \href{https://en.wikipedia.org/wiki/Anaconda_(Python_distribution)}{\tt Anaconda}
+\item \href{https://en.wikipedia.org/wiki/Keyboard_interrupt}{\tt Keyboard interrupt}
+\item \href{https://en.wikipedia.org/wiki/Control-C}{\tt Control-\/C}
+\end{DoxyItemize}
+\item \href{https://docs.python.org/3/library/2to3.html}{\tt 2to3}
+\item \href{https://en.wikipedia.org/wiki/Pip_(package_manager)}{\tt pip}
+\item \href{https://en.wikipedia.org/wiki/Unicode}{\tt Unicode}
+\item \href{https://gpiozero.readthedocs.io/en/stable}{\tt G\+P\+IO Zero}
+\item \href{http://abyz.me.uk/rpi/pigpio}{\tt pigpio}
+\item \href{https://en.wikipedia.org/wiki/PyPy}{\tt Py\+Py}
+\item \href{https://en.wikipedia.org/wiki/MicroPython}{\tt Micro\+Python}
+\item \href{https://en.wikipedia.org/wiki/CircuitPython}{\tt Circuit\+Python}
+\item \href{https://en.wikipedia.org/wiki/Doxygen}{\tt Doxygen}
+\end{DoxyItemize}
+
+\subsection*{Lab 3A\+: Python}
+
+
+\begin{DoxyItemize}
+\item If Python has not been installed on Windows 10, \href{https://www.python.org/downloads/windows/}{\tt download} and install the latest version of Python 3
+\item On Windows 10, edit path in \char`\"{}\+System Properties $>$ Advanced $>$ Environment Variables\char`\"{} and add 
+\begin{DoxyCode}
+C:\(\backslash\)Users\(\backslash\)...\(\backslash\)AppData\(\backslash\)Local\(\backslash\)Programs\(\backslash\)Python\(\backslash\)Python... 
+C:\(\backslash\)Users\(\backslash\)...\(\backslash\)AppData\(\backslash\)Local\(\backslash\)Programs\(\backslash\)Python\(\backslash\)Python...\(\backslash\)Scripts
+\end{DoxyCode}
+
+\item Open Git Bash on Windows 10, run Python and install/upgrade Python packages with pip 
+\begin{DoxyCode}
+$ python -i
+>>> import math
+>>> math.sqrt(64)
+8.0
+>>> exit()
+$ python -m pip install --upgrade pip
+$ pip install jdcal astral geopy
+$ cd
+$ cd iot
+$ git pull
+$ cd lesson3
+$ 2to3 2example.py
+$ python julian.py
+$ python date\_example.py
+$ python datetime\_example.py
+$ python time\_example.py
+$ python sun.py 'New York'
+$ python sun.py 'Beijing'
+$ python sun.py 'New Delhi'
+$ python moon.py
+$ python coordinates.py 'SC Williams Library'
+$ python address.py '40.74480675, -74.02532862031404'
+$ python documentstats.py document.txt
+\end{DoxyCode}
+ \subsubsection*{N\+O\+TE\+: Raspberry Pi OS (or mac\+O\+S/\+Linux) has both Python 2 and Python 3 already preinstalled}
+\end{DoxyItemize}
+
+\subsubsection*{W\+A\+R\+N\+I\+NG\+: Don\textquotesingle{}t upgrade the preinstalled Python or P\+IP on Raspberry Pi OS}
+
+
+\begin{DoxyItemize}
+\item Run pip3 to install/upgrade packages, update the IoT repository, and run Python 3 programs 
+\begin{DoxyCode}
+$ sudo pip3 install -U jdcal astral geopy
+$ cd iot
+$ git pull
+$ cd lesson3
+$ 2to3 2example.py
+$ python3 julian.py
+$ python3 date\_example.py
+$ python3 datetime\_example.py
+$ python3 time\_example.py
+$ python3 sun.py 'New York'
+$ python3 sun.py 'Beijing'
+$ python3 sun.py 'New Delhi'
+$ python3 moon.py
+$ python3 coordinates.py 'SC Williams Library'
+$ python3 address.py '40.74480675, -74.02532862031404'
+$ python3 documentstats.py document.txt
+\end{DoxyCode}
+ \#\#\# On Raspberry Pi only 
+\begin{DoxyCode}
+$ python3 system\_info.py
+\end{DoxyCode}
+ \#\#\# Run ifconfig on Raspberry Pi (mac\+OS or Linux) or ipconfig on Windows to find IP address 
+\begin{DoxyCode}
+$ ifconfig
+\end{DoxyCode}
+ \subsubsection*{Run \href{https://en.wikipedia.org/wiki/Network_socket}{\tt network socket} server from a Terminal, and run network socket client from A\+N\+O\+T\+H\+ER Terminal of the same Raspberry Pi or a different one on the same subnetwork using the IP address as a string in single quotes}
+\end{DoxyItemize}
+
+
+\begin{DoxyItemize}
+\item \textquotesingle{}The Server IP Address\textquotesingle{} is a placeholder to be replaced with a real IP address such as 192.\+168.\+1.\+200 
+\begin{DoxyCode}
+$ python3 socket\_server.py
+$ python3 socket\_client.py 'The Server IP Address'
+\end{DoxyCode}
+ \subsection*{Lab 3B\+: Breadboard}
+\end{DoxyItemize}
+
+\subsubsection*{1. Connect the breadboard components (including a 1{$\mu$}F capacitor) to Raspberry Pi 3\+V3, G\+ND, G\+P\+IO 18, G\+P\+IO 24, and G\+P\+IO 25 using five Du\+Pont male-\/to-\/female jump wires}
+
+
+
+\#\#\# 2. Run the following three python programs 
+\begin{DoxyCode}
+$ python3 blink.py
+$ python3 manual.py
+$ python3 auto.py
+\end{DoxyCode}
+ \subsubsection*{3. Make a new directory, copy files to the current directory (in a single dot as opposed to the parent directory in double dots), edit (replace G\+M\+A\+I\+L\+\_\+\+A\+D\+D\+R\+E\+SS, R\+E\+C\+I\+P\+I\+E\+N\+T\+\_\+\+E\+M\+A\+IL, G\+M\+A\+I\+L\+\_\+\+U\+S\+E\+R\+N\+A\+ME, and G\+O\+O\+G\+L\+E\+\_\+\+A\+P\+P\+\_\+\+P\+A\+S\+S\+W\+O\+RD)}
+
+
+\begin{DoxyItemize}
+\item test\+\_\+email.\+py doesn\textquotesingle{}t require the breadboard
+\item hello.\+py requires a button to be pressed for sending an email 
+\begin{DoxyCode}
+$ cd
+$ mkdir demo
+$ cd demo
+$ cp ~/iot/lesson3/test\_email.py .
+$ nano test\_email.py
+$ python3 test\_email.py
+$ cp ~/iot/lesson3/hello.py .
+$ nano hello.py
+$ python3 hello.py
+\end{DoxyCode}
+ \subsection*{Lab 3C\+: Remote G\+P\+IO}
+\end{DoxyItemize}
+
+\#\#\# 1. Launch the pigpio \href{https://en.wikipedia.org/wiki/Daemon_(computing)}{\tt daemon} using the −n flag to allow connections from a specific IP address of a controlling computer without quotation marks 
+\begin{DoxyCode}
+pi@raspberrypi:~ $ sudo pigpiod -n <CONTROLLING\_ADDRESS>
+\end{DoxyCode}
+ \#\#\# 2. If the controlling computer is on mac\+OS (sudo pip3 install) or Windows (pip install), install G\+P\+IO Zero and pigpio, git clone the iot repository, go to the iot/lesson3 directory, and run the Python program with the environment variable P\+I\+G\+P\+I\+O\+\_\+\+A\+D\+DR set to the IP address of the controlled Raspberry Pi 
+\begin{DoxyCode}
+$ sudo pip3 install gpiozero pigpio
+$ git clone https://github.com/kevinwlu/iot.git
+$ cd ~/iot/lesson3
+$ PIGPIO\_ADDR=<CONTROLLED\_ADDRESS> python3 led.py
+\end{DoxyCode}
+ \#\#\# 3. If the controlling computer is another Raspberry Pi, go to the iot/lesson3 directory and run the Python program with the environment variables G\+P\+I\+O\+Z\+E\+R\+O\+\_\+\+P\+I\+N\+\_\+\+F\+A\+C\+T\+O\+RY set to pigpio since the default pin factory is R\+Pi.\+G\+P\+IO 
+\begin{DoxyCode}
+$ GPIOZERO\_PIN\_FACTORY=pigpio PIGPIO\_ADDR=<CONTROLLED\_ADDRESS> python3 led.py
+\end{DoxyCode}
+ \subsection*{Lab 3D\+: 1-\/\+Wire}
+
+\subsubsection*{Connect D\+S18\+B20 to Raspberry Pi and run the Python program\+:}
+
+
+\begin{DoxyItemize}
+\item G\+ND to G\+ND
+\item V\+DD to 3.\+3V or 5V
+\item DQ to G\+P\+IO 4 (the 4th pin from the left of the bottom row) and through a 4.\+7k{$\Omega$} resistor to V\+DD
+\end{DoxyItemize}
+
+
+
+
+\begin{DoxyCode}
+pi@raspberrypi:~/iot/lesson3 $ python3 \hyperlink{namespacetemperature}{temperature}.py
+\end{DoxyCode}
+
+
+\#\# Lab 3E\+: Py\+Py 
+\begin{DoxyCode}
+$ cd ~/iot/lesson3/pypy
+$ gcc -o test test.c
+$ time ./test
+$ time pypy test.py
+$ time python test.py
+$ time python3 test.py
+$ pypy -m cProfile test.py
+$ python -m cProfile test.py
+$ python3 -m cProfile test.py
+\end{DoxyCode}
+ \#\# Lab 3F\+: Doxygen 
+\begin{DoxyCode}
+$ sudo apt install doxygen html2text
+$ cd ~/demo
+$ cp ~/iot/lesson3/pyexample.py .
+$ doxygen -g doxygen.config
+$ nano doxygen.config
+\end{DoxyCode}
+ \begin{quote}
+P\+R\+O\+J\+E\+C\+T\+\_\+\+N\+A\+ME = \char`\"{}pyexample\char`\"{} \end{quote}
+
+
+\begin{quote}
+O\+P\+T\+I\+M\+I\+Z\+E\+\_\+\+O\+U\+T\+P\+U\+T\+\_\+\+J\+A\+VA = Y\+ES \end{quote}
+
+\begin{DoxyCode}
+$ doxygen doxygen.config
+$ cd html
+$ html2text annotated.html
+\end{DoxyCode}
+ 
